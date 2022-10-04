@@ -1,5 +1,7 @@
 using System.Reflection;
+using BookStore.Core.UnitOfWorkCore;
 using BookStore.Repository;
+using BookStore.Repository.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +21,7 @@ builder.Services.AddDbContext<BookStoreDbContext>(x =>
             .Name);
     });
 });
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 
 var app = builder.Build();

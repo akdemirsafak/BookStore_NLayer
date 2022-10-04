@@ -1,0 +1,108 @@
+{
+  "version": 3,
+  "targets": {
+    "net7.0": {
+      "BookStore.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/BookStore.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BookStore.Core.dll": {}
+        }
+      },
+      "BookStore.Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "BookStore.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BookStore.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BookStore.Repository.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BookStore.Core/1.0.0": {
+      "type": "project",
+      "path": "../BookStore.Core/BookStore.Core.csproj",
+      "msbuildProject": "../BookStore.Core/BookStore.Core.csproj"
+    },
+    "BookStore.Repository/1.0.0": {
+      "type": "project",
+      "path": "../BookStore.Repository/BookStore.Repository.csproj",
+      "msbuildProject": "../BookStore.Repository/BookStore.Repository.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net7.0": [
+      "BookStore.Repository >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/Users/akdemirsafak/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/Users/akdemirsafak/Desktop/NetCore/BookStore/BookStore.Service/BookStore.Service.csproj",
+      "projectName": "BookStore.Service",
+      "projectPath": "/Users/akdemirsafak/Desktop/NetCore/BookStore/BookStore.Service/BookStore.Service.csproj",
+      "packagesPath": "/Users/akdemirsafak/.nuget/packages/",
+      "outputPath": "/Users/akdemirsafak/Desktop/NetCore/BookStore/BookStore.Service/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/akdemirsafak/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net7.0"
+      ],
+      "sources": {
+        "/usr/local/share/dotnet/library-packs": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "projectReferences": {
+            "/Users/akdemirsafak/Desktop/NetCore/BookStore/BookStore.Repository/BookStore.Repository.csproj": {
+              "projectPath": "/Users/akdemirsafak/Desktop/NetCore/BookStore/BookStore.Repository/BookStore.Repository.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net7.0": {
+        "targetAlias": "net7.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100-rc.1.22431.12/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

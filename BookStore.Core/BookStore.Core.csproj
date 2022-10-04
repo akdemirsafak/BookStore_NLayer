@@ -8,10 +8,6 @@
 
     <ItemGroup>
       <Folder Include="Dtos" />
-      <Folder Include="Entity" />
-      <Folder Include="RepositoryCore" />
-      <Folder Include="ServiceCore" />
-      <Folder Include="UnitOfWorkCore" />
     </ItemGroup>
 
 </Project>

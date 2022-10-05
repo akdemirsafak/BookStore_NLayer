@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace BookStore.Repository.Configuration;
 
-public class DisciplineConfiguration:IEntityTypeConfiguration<Discipline>
+public class DisciplineConfiguration : IEntityTypeConfiguration<Discipline>
 {
     public void Configure(EntityTypeBuilder<Discipline> builder)
     {

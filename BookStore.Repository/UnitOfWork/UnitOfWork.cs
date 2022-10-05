@@ -2,12 +2,15 @@ using BookStore.Core.UnitOfWorkCore;
 
 namespace BookStore.Repository.UnitOfWork;
 
-public class UnitOfWork:IUnitOfWork
+public class UnitOfWork : IUnitOfWork
 {
     private readonly BookStoreDbContext _dbContext;
 
-    public UnitOfWork(BookStoreDbContext dbContext)=> _dbContext = dbContext;
-    
+    public UnitOfWork(BookStoreDbContext dbContext)
+    {
+        _dbContext = dbContext;
+    }
+
 
     public int Commit()
     {

@@ -8,7 +8,8 @@ public class BookStoreDbContext : DbContext
 {
     public BookStoreDbContext(DbContextOptions<BookStoreDbContext> options) : base(options)
     {
-    } 
+    }
+
     public virtual DbSet<Book> Books { get; set; }
     public virtual DbSet<Discipline> Disciplines { get; set; }
     public virtual DbSet<Author> Authors { get; set; }

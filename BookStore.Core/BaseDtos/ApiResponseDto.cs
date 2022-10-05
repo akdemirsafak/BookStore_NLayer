@@ -6,7 +6,7 @@ public class ApiResponseDto<T>
 {
     public T Data { get; set; }
     public List<string> Errors { get; set; }
-    [JsonIgnore]public int StatusCode { get; set; }
+    [JsonIgnore] public int StatusCode { get; set; }
 
     public static ApiResponseDto<T> Success(int statusCode, T data)
     {
@@ -17,6 +17,7 @@ public class ApiResponseDto<T>
             Errors = null
         };
     }
+
     public static ApiResponseDto<T> Success(int statusCode)
     {
         return new ApiResponseDto<T>
@@ -25,7 +26,8 @@ public class ApiResponseDto<T>
             Errors = null
         };
     }
-    public static ApiResponseDto<T> Fail(int statusCode,List<string> errorMessages)
+
+    public static ApiResponseDto<T> Fail(int statusCode, List<string> errorMessages)
     {
         return new ApiResponseDto<T>
         {
@@ -33,13 +35,13 @@ public class ApiResponseDto<T>
             Errors = errorMessages
         };
     }
-    public static ApiResponseDto<T> Fail(int statusCode,string error)
+
+    public static ApiResponseDto<T> Fail(int statusCode, string error)
     {
         return new ApiResponseDto<T>
         {
             StatusCode = statusCode,
-            Errors = new List<string>{error}
+            Errors = new List<string> { error }
         };
     }
-    
 }

@@ -6,7 +6,7 @@ namespace BookStore.Repository.Repositories;
 
 public class BookRepository : GenericRepository<Book>, IBookRepository
 {
-    public BookRepository(BookStoreDbContext dbContext) : base(dbContext)
+    public BookRepository(BookStoreDBContext dbContext) : base(dbContext)
     {
     }
 

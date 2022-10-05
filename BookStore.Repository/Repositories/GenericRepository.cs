@@ -6,10 +6,10 @@ namespace BookStore.Repository.Repositories;
 
 public class GenericRepository<T> : IGenericRepository<T> where T : class
 {
-    protected readonly BookStoreDbContext _dbContext;
+    protected readonly BookStoreDBContext _dbContext;
     private readonly DbSet<T> _dbSet;
 
-    public GenericRepository(BookStoreDbContext dbContext)
+    public GenericRepository(BookStoreDBContext dbContext)
     {
         _dbContext = dbContext;
         _dbSet = dbContext.Set<T>();

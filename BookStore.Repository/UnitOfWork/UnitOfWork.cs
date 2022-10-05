@@ -4,13 +4,12 @@ namespace BookStore.Repository.UnitOfWork;
 
 public class UnitOfWork : IUnitOfWork
 {
-    private readonly BookStoreDbContext _dbContext;
+    private readonly BookStoreDBContext _dbContext;
 
-    public UnitOfWork(BookStoreDbContext dbContext)
+    public UnitOfWork(BookStoreDBContext dbContext)
     {
         _dbContext = dbContext;
     }
-
 
     public int Commit()
     {

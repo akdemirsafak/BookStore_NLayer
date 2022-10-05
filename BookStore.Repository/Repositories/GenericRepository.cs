@@ -20,7 +20,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         return _dbSet.AsNoTracking().AsQueryable();
     }
 
-    public async Task<T> GetByIdAsync(int id)
+    public async Task<T> FindAsync(int id)
     {
         return await _dbSet.FindAsync(id);
     }
@@ -37,12 +37,11 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
 
     public async Task AddAsync(T entity)
     {
-         await _dbSet.AddAsync(entity);
+        await _dbSet.AddAsync(entity);
     }
 
     public async Task AddRangeAsync(IEnumerable<T> entities)
     {
         await _dbSet.AddRangeAsync(entities);
     }
-    
 }

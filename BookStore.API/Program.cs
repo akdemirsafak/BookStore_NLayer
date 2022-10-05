@@ -1,6 +1,8 @@
 using System.Reflection;
+using BookStore.Core.RepositoryCore;
 using BookStore.Core.UnitOfWorkCore;
 using BookStore.Repository;
+using BookStore.Repository.Repositories;
 using BookStore.Repository.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,6 +24,8 @@ builder.Services.AddDbContext<BookStoreDbContext>(x =>
     });
 });
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
+builder.Services.AddScoped<IBookRepository, BookRepository>();
 
 
 var app = builder.Build();

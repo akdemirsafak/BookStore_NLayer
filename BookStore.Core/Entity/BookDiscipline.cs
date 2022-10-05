@@ -6,6 +6,4 @@ public class BookDiscipline
     public int BookId { get; set; }
     public Discipline Discipline { get; set; }
     public int DisciplineId { get; set; }
-    
-    
 }

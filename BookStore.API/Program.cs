@@ -15,18 +15,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<BookStoreDbContext>(x =>
+builder.Services.AddDbContext<BookStoreDBContext>(x =>
 {
-    x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), option =>
-    {
-        option.MigrationsAssembly(Assembly.GetAssembly(typeof(BookStoreDbContext))!.GetName()
-            .Name);
-    });
+    x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
+        option => { option.MigrationsAssembly(Assembly.GetAssembly(typeof(BookStoreDBContext))!.GetName().Name); });
 });
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-builder.Services.AddScoped<IBookRepository, BookRepository>();
-
 
 var app = builder.Build();
 

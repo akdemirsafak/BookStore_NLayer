@@ -30,6 +30,7 @@ public class BookRepository : GenericRepository<Book>, IBookRepository
                     .SetProperty(x => x.Price, y => entity.Price)
                     .SetProperty(x => x.AuthorId, y => entity.AuthorId)
                     .SetProperty(x => x.PublishDate, y => entity.PublishDate)
+                    .SetProperty(x => x.Disciplines, y => entity.Disciplines)
             );
     }
 
@@ -43,5 +44,15 @@ public class BookRepository : GenericRepository<Book>, IBookRepository
                     .SetProperty(x => x.AuthorId, y => entity.AuthorId)
                     .SetProperty(x => x.PublishDate, y => entity.PublishDate)
             );
+    }
+
+    public async Task<Book> GetWithDetailsByIdAsync(int id)
+    {
+        var result = await _dbContext.Books.Where(x => x.Id == id)
+            .Include(x => x.Author)
+            .Include(x => x.Disciplines)
+            .ThenInclude(x => x.Discipline)
+            .SingleOrDefaultAsync();
+        return result;
     }
 }

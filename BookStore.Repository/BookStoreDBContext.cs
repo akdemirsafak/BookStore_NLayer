@@ -20,11 +20,11 @@ public class BookStoreDBContext : DbContext
     public DbSet<Book> Books { get; set; }
     public DbSet<Discipline> Disciplines { get; set; }
     public DbSet<Author> Authors { get; set; }
+    public DbSet<BookDiscipline> BookDisciplines { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-
         modelBuilder.Entity<BookDiscipline>()
             .HasKey(bd => new { bd.BookId, bd.DisciplineId });
 
@@ -37,7 +37,6 @@ public class BookStoreDBContext : DbContext
             .HasOne(bd => bd.Discipline)
             .WithMany(b => b.Books)
             .HasForeignKey(bd => bd.DisciplineId);
-
         base.OnModelCreating(modelBuilder);
     }
 

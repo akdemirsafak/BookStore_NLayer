@@ -8,4 +8,5 @@ public interface IBookRepository : IGenericRepository<Book>
     int Delete(int id);
     int Update(Book entity);
     Task<int> UpdateAsync(Book entity);
+    Task<Book> GetWithDetailsByIdAsync(int id);
 }

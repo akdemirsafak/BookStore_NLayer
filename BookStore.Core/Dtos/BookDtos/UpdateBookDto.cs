@@ -1,4 +1,4 @@
-namespace BookStore.Core.Dtos.BookOperations;
+namespace BookStore.Core.Dtos.BookDtos;
 
 public class UpdateBookDto
 {
@@ -6,6 +6,6 @@ public class UpdateBookDto
     public string Title { get; set; }
     public string? Description { get; set; }
     public decimal Price { get; set; }
-    public DateTime PublishDate { get; set; }
+    public DateTime? PublishDate { get; set; }
     public int AuthorId { get; set; }
 }

@@ -48,12 +48,12 @@ public class BookStoreDBContext : DbContext
                 {
                     case EntityState.Added:
                     {
-                        entityReference.CreationDate = DateTime.Now;
+                        entityReference.CreatedDate = DateTime.Now;
                         break;
                     }
                     case EntityState.Modified:
                     {
-                        Entry(entityReference).Property(x => x.CreationDate).IsModified = false;
+                        Entry(entityReference).Property(x => x.CreatedDate).IsModified = false;
                         entityReference.UpdatedDate = DateTime.Now;
                         break;
                     }
@@ -70,7 +70,7 @@ public class BookStoreDBContext : DbContext
                 {
                     case EntityState.Added:
                     {
-                        entityReference.CreationDate = DateTime.Now.Date;
+                        entityReference.CreatedDate = DateTime.Now.Date;
                         break;
                     }
                     case EntityState.Modified:

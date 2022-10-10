@@ -16,7 +16,7 @@ public class SeedBook : IEntityTypeConfiguration<Book>
                 Price = 14.68m,
                 AuthorId = 1,
                 PublishDate = DateTime.Now.Date.AddYears(-10),
-                CreationDate = DateTime.Now.Date
+                CreatedDate = DateTime.Now.Date
             },
             new Book
             {
@@ -24,7 +24,7 @@ public class SeedBook : IEntityTypeConfiguration<Book>
                 Title = "Dönüşüm", Price = 14,
                 AuthorId = 2,
                 PublishDate = DateTime.Now.Date.AddYears(-50),
-                CreationDate = DateTime.Now.Date.AddDays(-1)
+                CreatedDate = DateTime.Now.Date.AddDays(-1)
             },
             new Book
             {
@@ -34,7 +34,7 @@ public class SeedBook : IEntityTypeConfiguration<Book>
                 Price = 24.17m,
                 AuthorId = 3,
                 PublishDate = DateTime.Now.AddYears(-150),
-                CreationDate = DateTime.Now.Date.AddYears(-1)
+                CreatedDate = DateTime.Now.Date.AddYears(-1)
             },
             new Book
             {
@@ -43,7 +43,7 @@ public class SeedBook : IEntityTypeConfiguration<Book>
                 Price = 113.75m,
                 AuthorId = 4,
                 PublishDate = DateTime.Now.Date.AddYears(-25),
-                CreationDate = DateTime.Now.Date.AddMonths(-6)
+                CreatedDate = DateTime.Now.Date.AddMonths(-6)
             },
             new Book
             {
@@ -53,12 +53,12 @@ public class SeedBook : IEntityTypeConfiguration<Book>
                 Price = 14.33m,
                 AuthorId = 5,
                 PublishDate = DateTime.Now.Date.AddYears(-65),
-                CreationDate = DateTime.Now.Date.AddYears(-10)
+                CreatedDate = DateTime.Now.Date.AddYears(-10)
             },
             new Book
             {
                 Id = 6, Title = "Cingöz Recai", Price = 90, AuthorId = 3, PublishDate = DateTime.Today,
-                CreationDate = DateTime.Now.Date.AddDays(-5)
+                CreatedDate = DateTime.Now.Date.AddDays(-5)
             },
             new Book
             {
@@ -68,7 +68,7 @@ public class SeedBook : IEntityTypeConfiguration<Book>
                 Price = 41,
                 AuthorId = 5,
                 PublishDate = DateTime.Today,
-                CreationDate = DateTime.Now.Date.AddMonths(-1)
+                CreatedDate = DateTime.Now.Date.AddMonths(-1)
             },
             new Book
             {
@@ -78,7 +78,7 @@ public class SeedBook : IEntityTypeConfiguration<Book>
                     "Olay örgüsünde birçok ilginç karakterin yer aldığı Sefiller birçok sinema, televizyon ve tiyatro eserine uyarlanmıştır.",
                 Price = 11.90m, AuthorId = 5,
                 PublishDate = DateTime.Now.Date.AddYears(-200),
-                CreationDate = DateTime.Now.Date.AddMonths(-20)
+                CreatedDate = DateTime.Now.Date.AddMonths(-20)
             }
         );
     }

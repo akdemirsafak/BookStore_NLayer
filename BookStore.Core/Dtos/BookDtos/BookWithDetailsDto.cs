@@ -1,4 +1,4 @@
-namespace BookStore.Core.Dtos.BookOperations;
+namespace BookStore.Core.Dtos.BookDtos;
 
 public class BookWithDetailsDto
 {
@@ -7,7 +7,7 @@ public class BookWithDetailsDto
     public string? Description { get; set; }
     public decimal Price { get; set; }
     public string PublishDate { get; set; }
-    public string CreationDate { get; set; }
+    public string CreatedDate { get; set; }
     public string? UpdatedDate { get; set; }
     public AuthorForBookDetails Author { get; set; }
     public List<DisciplinesForBookDetails> Disciplines { get; set; }

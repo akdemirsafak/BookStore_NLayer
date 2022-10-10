@@ -1,4 +1,4 @@
-namespace BookStore.Core.Dtos.BookOperations;
+namespace BookStore.Core.Dtos.BookDtos;
 
 public class BookDto
 {
@@ -8,6 +8,6 @@ public class BookDto
     public decimal Price { get; set; }
     public string PublishDate { get; set; }
     public int AuthorId { get; set; }
-    public string CreationDate { get; set; }
+    public string CreatedDate { get; set; }
     public string? UpdatedDate { get; set; }
 }

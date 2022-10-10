@@ -1,4 +1,4 @@
-namespace BookStore.Core.Dtos.BookOperations;
+namespace BookStore.Core.Dtos.BookDtos;
 
 public class BookDisciplineIdDto
 {

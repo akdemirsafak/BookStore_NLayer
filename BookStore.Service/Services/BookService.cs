@@ -1,6 +1,6 @@
 using AutoMapper;
 using BookStore.Core.BaseDtos;
-using BookStore.Core.Dtos.BookOperations;
+using BookStore.Core.Dtos.BookDtos;
 using BookStore.Core.Entity;
 using BookStore.Core.RepositoryCore;
 using BookStore.Core.ServiceCore;
@@ -44,7 +44,7 @@ public class BookService : GenericService<Book>, IBookService
         return ApiResponseDto<BookWithDetailsDto>.Success(200, mappedResult);
     }
 
-    public async Task<ApiResponseDto<NoContentDto>> RemoveAsync(int id)
+    public async Task<ApiResponseDto<NoContentDto>> DeleteAsync(int id)
     {
         var result = await _bookRepository.DeleteAsync(id);
         if (result > 0) return ApiResponseDto<NoContentDto>.Success(204);

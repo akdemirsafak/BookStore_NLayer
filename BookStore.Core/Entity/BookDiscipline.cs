@@ -1,6 +1,6 @@
 namespace BookStore.Core.Entity;
 
-public class BookDiscipline
+public class BookDiscipline : BaseEntity
 {
     public int BookId { get; set; }
     public int DisciplineId { get; set; }

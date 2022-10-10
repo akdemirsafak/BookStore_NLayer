@@ -1,4 +1,4 @@
-using BookStore.Core.Dtos.BookOperations;
+using BookStore.Core.Dtos.BookDtos;
 using BookStore.Core.ServiceCore;
 using Microsoft.AspNetCore.Mvc;
 
@@ -46,6 +46,6 @@ public class BookController : CustomBaseController
     [HttpDelete]
     public async Task<IActionResult> Delete(int id)
     {
-        return CreateActionResult(await _bookService.RemoveAsync(id));
+        return CreateActionResult(await _bookService.DeleteAsync(id));
     }
 }

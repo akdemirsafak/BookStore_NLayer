@@ -8,40 +8,24 @@ public class ApiResponseDto<T>
     public List<string> Errors { get; set; }
     [JsonIgnore] public int StatusCode { get; set; }
 
-    public static ApiResponseDto<T> Success(int statusCode, T data)
+    //Static Factory Method
+    public static ApiResponseDto<T> Success(T Data, int statusCode = 0)
     {
-        return new ApiResponseDto<T>
-        {
-            Data = data,
-            StatusCode = statusCode,
-            Errors = null
-        };
+        return new ApiResponseDto<T> { Data = Data, StatusCode = statusCode };
     }
 
-    public static ApiResponseDto<T> Success(int statusCode)
+    public static ApiResponseDto<T> Success(int statusCode = 0)
     {
-        return new ApiResponseDto<T>
-        {
-            StatusCode = statusCode,
-            Errors = null
-        };
+        return new ApiResponseDto<T> { Data = default, StatusCode = statusCode };
     }
 
-    public static ApiResponseDto<T> Fail(int statusCode, List<string> errorMessages)
+    public static ApiResponseDto<T> Fail(List<string> errors, int statusCode = 0)
     {
-        return new ApiResponseDto<T>
-        {
-            StatusCode = statusCode,
-            Errors = errorMessages
-        };
+        return new ApiResponseDto<T> { Data = default, Errors = errors, StatusCode = statusCode };
     }
 
-    public static ApiResponseDto<T> Fail(int statusCode, string error)
+    public static ApiResponseDto<T> Fail(string error, int statusCode = 0)
     {
-        return new ApiResponseDto<T>
-        {
-            StatusCode = statusCode,
-            Errors = new List<string> { error }
-        };
+        return new ApiResponseDto<T> { Data = default, Errors = new List<string> { error }, StatusCode = statusCode };
     }
 }

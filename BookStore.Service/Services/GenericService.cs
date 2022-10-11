@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using BookStore.Core.RepositoryCore;
 using BookStore.Core.ServiceCore;
 using BookStore.Core.UnitOfWorkCore;
@@ -13,5 +14,10 @@ public class GenericService<T> : IGenericService<T> where T : class
     {
         _genericRepository = genericRepository;
         _unitOfWork = unitOfWork;
+    }
+
+    public Task<bool> AnyAsync(Expression<Func<T, bool>> expression)
+    {
+        return _genericRepository.AnyAsync(expression);
     }
 }

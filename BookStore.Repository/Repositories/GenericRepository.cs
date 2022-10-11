@@ -17,7 +17,8 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
 
     public IQueryable<T> GetAll()
     {
-        return _dbSet.AsNoTracking().AsQueryable();
+        var result = _dbSet.AsNoTracking().AsQueryable();
+        return result;
     }
 
     public async Task<T> FindAsync(int id)

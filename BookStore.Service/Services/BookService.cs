@@ -27,28 +27,28 @@ public class BookService : GenericService<Book>, IBookService
     {
         var result = await _bookRepository.GetAll().ToListAsync();
         var mappedDto = _mapper.Map<List<BookDto>>(result);
-        return ApiResponseDto<List<BookDto>>.Success(200, mappedDto);
+        return ApiResponseDto<List<BookDto>>.Success(mappedDto, 200);
     }
 
     public async Task<ApiResponseDto<BookDto>> GetById(int id)
     {
         var result = await _bookRepository.FindAsync(id);
         var mappedDto = _mapper.Map<BookDto>(result);
-        return ApiResponseDto<BookDto>.Success(200, mappedDto);
+        return ApiResponseDto<BookDto>.Success(mappedDto, 200);
     }
 
     public async Task<ApiResponseDto<BookWithDetailsDto>> GetWithDetailsByIdAsync(int id)
     {
         var result = await _bookRepository.GetWithDetailsByIdAsync(id);
         var mappedResult = _mapper.Map<BookWithDetailsDto>(result);
-        return ApiResponseDto<BookWithDetailsDto>.Success(200, mappedResult);
+        return ApiResponseDto<BookWithDetailsDto>.Success(mappedResult, 200);
     }
 
     public async Task<ApiResponseDto<NoContentDto>> DeleteAsync(int id)
     {
         var result = await _bookRepository.DeleteAsync(id);
         if (result > 0) return ApiResponseDto<NoContentDto>.Success(204);
-        return ApiResponseDto<NoContentDto>.Fail(500, "Kitap silinemedi.");
+        return ApiResponseDto<NoContentDto>.Fail("Kitap silinemedi.", 500);
     }
 
     public async Task<ApiResponseDto<NoContentDto>> CreateAsync(CreateBookDto book)
@@ -64,6 +64,6 @@ public class BookService : GenericService<Book>, IBookService
         var bookEntity = _mapper.Map<Book>(book);
         var result = await _bookRepository.UpdateAsync(bookEntity);
         if (result > 0) return ApiResponseDto<NoContentDto>.Success(204);
-        return ApiResponseDto<NoContentDto>.Fail(500, "Güncelleme başarısız.");
+        return ApiResponseDto<NoContentDto>.Fail("Güncelleme başarısız.", 500);
     }
 }

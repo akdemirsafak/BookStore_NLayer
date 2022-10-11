@@ -27,16 +27,15 @@ public class DisciplineService : GenericService<Discipline>, IDisciplineService
     {
         var result = await _disciplineRepository.GetAll().ToListAsync();
         var mappedDisciplinesDto = _mapper.Map<List<DisciplineDto>>(result);
-        return ApiResponseDto<List<DisciplineDto>>.Success(200, mappedDisciplinesDto);
+        return ApiResponseDto<List<DisciplineDto>>.Success(mappedDisciplinesDto, 200);
     }
 
     public async Task<ApiResponseDto<DisciplineDto>> GetById(int id)
     {
         var result = await _disciplineRepository.FindAsync(id);
         var mappedDisciplineDto = _mapper.Map<DisciplineDto>(result);
-        return ApiResponseDto<DisciplineDto>.Success(200, mappedDisciplineDto);
+        return ApiResponseDto<DisciplineDto>.Success(mappedDisciplineDto, 200);
     }
-
 
     public async Task<ApiResponseDto<NoContentDto>> CreateAsync(CreateDisciplineDto discipline)
     {
@@ -51,21 +50,20 @@ public class DisciplineService : GenericService<Discipline>, IDisciplineService
         var disciplineEntity = _mapper.Map<Discipline>(discipline);
         var affectedRowCount = await _disciplineRepository.UpdateAsync(disciplineEntity);
         if (affectedRowCount > 0) return ApiResponseDto<NoContentDto>.Success(204);
-        return ApiResponseDto<NoContentDto>.Fail(500, "Disiplin güncellenemedi.");
+        return ApiResponseDto<NoContentDto>.Fail("Disiplin güncellenemedi.", 500);
     }
 
     public async Task<ApiResponseDto<NoContentDto>> DeleteAsync(int id)
     {
         var affectedRowCount = await _disciplineRepository.DeleteAsync(id);
-
         if (affectedRowCount > 0) return ApiResponseDto<NoContentDto>.Success(204);
-        return ApiResponseDto<NoContentDto>.Fail(500, "Disiplin silinemedi.");
+        return ApiResponseDto<NoContentDto>.Fail("Disiplin silinemedi.", 500);
     }
 
     public async Task<ApiResponseDto<DisciplineWithBooksDto>> GetWithBooksByIdAsync(int id)
     {
         var result = await _disciplineRepository.GetWithBooksByIdAsync(id);
         var mappedDto = _mapper.Map<DisciplineWithBooksDto>(result);
-        return ApiResponseDto<DisciplineWithBooksDto>.Success(200, mappedDto);
+        return ApiResponseDto<DisciplineWithBooksDto>.Success(mappedDto, 200);
     }
 }
